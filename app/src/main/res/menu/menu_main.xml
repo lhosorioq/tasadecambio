@@ -1,0 +1,22 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.tasadecambio.MainActivity">
+    <item
+        android:id="@+id/action_settings"
+        android:orderInCategory="100"
+        android:title="@string/action_inicio"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_convertir"
+        android:orderInCategory="200"
+        android:title="@string/action_convertir"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_nosotros"
+        android:orderInCategory="300"
+        android:title="@string/action_nosotros"
+        app:showAsAction="never" />
+
+</menu>
