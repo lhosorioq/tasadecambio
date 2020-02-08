@@ -32,9 +32,9 @@ public class Convertir extends AppCompatActivity {
         mSpinner2= (Spinner) findViewById(R.id.mSpinner2);
 
         ArrayList<String> elementos = new ArrayList<>();
-        elementos.add("Pesos Colombianos - COP");
-        elementos.add("Dolares Americanos - US");
-        elementos.add("Euros - EUR");
+        elementos.add("COP - Pesos Colombianos");
+        elementos.add("USD - Dolares Americanos");
+        elementos.add("EUR - Euros");
 
         ArrayAdapter adp= new ArrayAdapter(Convertir.this, android.R.layout.simple_spinner_dropdown_item, elementos);
 
@@ -42,9 +42,9 @@ public class Convertir extends AppCompatActivity {
         mSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                String elemento= (String) mSpinner.getAdapter().getItem(position);
+                String elemento = (String) mSpinner.getAdapter().getItem(position);
 
-                Toast.makeText(Convertir.this, "Selecciono " + elemento, Toast.LENGTH_SHORT).show();
+                //Toast.makeText(Convertir.this, "Selecciono " + elemento, Toast.LENGTH_SHORT).show();
             }
 
             @Override
@@ -58,8 +58,8 @@ public class Convertir extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 String elemento= (String) mSpinner2.getAdapter().getItem(position);
-
-                Toast.makeText(Convertir.this, "Y se convertirá a " + elemento, Toast.LENGTH_SHORT).show();
+                String moneda2 = elemento.substring(0, 3);
+                Toast.makeText(Convertir.this, "Y se convertirá a " + moneda2, Toast.LENGTH_SHORT).show();
             }
 
             @Override
