@@ -20,6 +20,11 @@ public class Convertir extends AppCompatActivity {
 
     private Spinner mSpinner;
     private Spinner mSpinner2;
+    private String origen;
+    private String final;
+    private double cantidad;
+    private  double resultado;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +42,28 @@ public class Convertir extends AppCompatActivity {
         elementos.add("EUR - Euros");
 
         ArrayAdapter adp= new ArrayAdapter(Convertir.this, android.R.layout.simple_spinner_dropdown_item, elementos);
+
+        private double convertir(String origen, String  final, double cantidad) {
+            double resutlado = 0.0;
+
+            if ( origen == "EUR") {
+                if (final == "USD" ) {
+                    resutlado = cantidad * 1.09457;
+                } else {
+                    resutlado = cantidad * 3735.77058;
+                }
+            } else {
+                if ( final == "USD" ) {
+                    if ( origen == "EUR") {
+
+                    } else {
+
+                    }
+                } else {
+
+                }
+            }
+        }
 
         mSpinner.setAdapter(adp);
         mSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -57,8 +84,13 @@ public class Convertir extends AppCompatActivity {
         mSpinner2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                String elemento= (String) mSpinner2.getAdapter().getItem(position);
-                String moneda2 = elemento.substring(0, 3);
+
+                String elemento1= (String) mSpinner.getAdapter().getItem(position);
+                String monedaorigen = elemento1.substring(0, 3);
+
+                String elemento2= (String) mSp1inner2.getAdapter().getItem(position);
+                String monedafinal = elemento2.substring(0, 3);
+
                 Toast.makeText(Convertir.this, "Y se convertirá a " + moneda2, Toast.LENGTH_SHORT).show();
             }
 
@@ -76,6 +108,15 @@ public class Convertir extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+
+
+
+        /*function valores(Origen, Final) {
+            if ( Origen == 'EUR' ) {
+
+            }
+        }*/
+
     }
 
 }
