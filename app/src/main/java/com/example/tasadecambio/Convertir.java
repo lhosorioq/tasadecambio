@@ -21,7 +21,7 @@ public class Convertir extends AppCompatActivity {
     private Spinner mSpinner;
     private Spinner mSpinner2;
     private String origen;
-    private String final;
+    //private String final;
     private double cantidad;
     private  double resultado;
 
@@ -43,10 +43,13 @@ public class Convertir extends AppCompatActivity {
 
         ArrayAdapter adp= new ArrayAdapter(Convertir.this, android.R.layout.simple_spinner_dropdown_item, elementos);
 
-        private double convertir(String origen, String  final, double cantidad) {
+
+
+
+        /*private double convertir(String origen, String  final, double cantidad) {
             double resutlado = 0.0;
 
-            if ( origen == "EUR") {
+            /*if ( origen == "EUR") {
                 if (final == "USD" ) {
                     resutlado = cantidad * 1.09457;
                 } else {
@@ -63,7 +66,7 @@ public class Convertir extends AppCompatActivity {
 
                 }
             }
-        }
+        }*/
 
         mSpinner.setAdapter(adp);
         mSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -88,10 +91,10 @@ public class Convertir extends AppCompatActivity {
                 String elemento1= (String) mSpinner.getAdapter().getItem(position);
                 String monedaorigen = elemento1.substring(0, 3);
 
-                String elemento2= (String) mSp1inner2.getAdapter().getItem(position);
+                String elemento2= (String) mSpinner2.getAdapter().getItem(position);
                 String monedafinal = elemento2.substring(0, 3);
 
-                Toast.makeText(Convertir.this, "Y se convertirá a " + moneda2, Toast.LENGTH_SHORT).show();
+                Toast.makeText(Convertir.this, "Y se convertirá a " + monedafinal, Toast.LENGTH_SHORT).show();
             }
 
             @Override
