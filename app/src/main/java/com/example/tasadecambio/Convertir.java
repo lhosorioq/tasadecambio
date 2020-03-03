@@ -101,6 +101,7 @@ public class Convertir extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
+                // validacion de errores posibles
                 try{
                     String elemento1= (String) mSpinner.getAdapter().getItem(position);
                     String monedainicio = elemento1.substring(0, 3);
