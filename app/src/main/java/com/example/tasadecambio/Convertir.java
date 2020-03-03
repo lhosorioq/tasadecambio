@@ -21,11 +21,11 @@ public class Convertir extends AppCompatActivity {
 
     private Spinner mSpinner;
     private Spinner mSpinner2;
-    private String origen;
+    //private String origen;
     private TextView monedaorigen;
     //private String final;
-    private double cantidad;
-    private  double resultado;
+    //private double cantidad;
+    //private  double resultado;
 
 
     @Override
@@ -47,47 +47,18 @@ public class Convertir extends AppCompatActivity {
 
         ArrayAdapter adp= new ArrayAdapter(Convertir.this, android.R.layout.simple_spinner_dropdown_item, elementos);
 
-
-
-
-        /*private final void convertir (String origen, String  final, Double cantidad) {
-            Double resultado = cantidad * 0.5;
-
-            Toast.makeText(Convertir.this, "Selecciono " + resultado, Toast.LENGTH_SHORT).show();
-
-
-            if ( origen == "EUR") {
-                if (final == "USD" ) {
-                    resutlado = cantidad * 1.09457;
-                } else {
-                    resutlado = cantidad * 3735.77058;
-                }
-            } else {
-                if ( final == "USD" ) {
-                    if ( origen == "EUR") {
-
-                    } else {
-
-                    }
-                } else {
-
-                }
-            }
-
-
-        }*/
-
         mSpinner.setAdapter(adp);
         mSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                String elemento = (String) mSpinner.getAdapter().getItem(position);
+                String elemento1 = (String) mSpinner.getAdapter().getItem(position);
+                String monedainicio = elemento1.substring(0, 3);
                 //monedaorigen.setText(android.R.id.input.getText());
 
                 //final inputText monedaorigen = (inputText)findViewById(R.id.monedaorigen);
                 //monedaorigen.setText();
 
-                Toast.makeText(Convertir.this, "Selecciono " + monedaorigen, Toast.LENGTH_SHORT).show();
+                //Toast.makeText(Convertir.this, "Selecciono " + monedaorigen, Toast.LENGTH_SHORT).show();
             }
 
             @Override
@@ -109,9 +80,10 @@ public class Convertir extends AppCompatActivity {
                     String elemento2= (String) mSpinner2.getAdapter().getItem(position);
                     String monedafinal = elemento2.substring(0, 3);
 
-                    if(monedaorigen == null){
-                        Toast.makeText(Convertir.this, "nulo", Toast.LENGTH_SHORT).show();
-                    }else{
+                    if ( monedaorigen != null){
+                        Toast.makeText(Convertir.this, "Moneda 1 " + monedainicio + " y moneda 2" + monedafinal, Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(Convertir.this, "nulo", Toast.LENGTH_SHORT).show();
+                    //}else{
                         String valororigen = monedaorigen.getText().toString();
                         Long valor = new Long(valororigen);
                         Long total = new Long(0);
@@ -121,7 +93,7 @@ public class Convertir extends AppCompatActivity {
                         } else {
                             if ( monedainicio == "EUR") {
                                 if ( monedafinal == "USD") {
-                                    total = valor * 5;
+                                    total = valor;
                                 } else {
 
                                 }
@@ -134,7 +106,7 @@ public class Convertir extends AppCompatActivity {
 
 
                         //convertir(monedainicio,monedafinal,valor);
-                        Toast.makeText(Convertir.this, "Y se convertirá a " + valor, Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(Convertir.this, "Y se convertirá a " + valor, Toast.LENGTH_SHORT).show();
                     }
 
                 } catch (Exception e){
